@@ -54,7 +54,7 @@ public class PersonService {
     public void deletePersonById(Long id) {
         Optional<Person> optionalPerson = personRepository.findById(id);
         if (optionalPerson.isPresent()) {
-            personRepository.deleteById(id);
+            personRepository.delete(optionalPerson.get());
         } else {
             throw new ResourceNotFoundException("Record not found with id : " + id);
         }
