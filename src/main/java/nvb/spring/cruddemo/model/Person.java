@@ -44,7 +44,8 @@ public class Person {
     @Column(name = "isMarried")
     private boolean isMarried;
 
-    public Person(String firstName, String lastName, String email, String country, String city, String gender, int age, String job, boolean isMarried) {
+    public Person(String firstName, String lastName, String email,
+                  String country, String city, String gender, int age, String job, boolean isMarried) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
