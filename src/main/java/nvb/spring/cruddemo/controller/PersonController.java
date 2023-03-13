@@ -27,12 +27,12 @@ public class PersonController {
         return new ResponseEntity<>(personService.findAll(), headers, HttpStatus.OK);
     }
 
-    @GetMapping("/person/{id}")
-    public ResponseEntity<Person> findPersonById(@PathVariable("id") Long id) {
+    @GetMapping("/person/{personId}")
+    public ResponseEntity<Person> findPersonById(@PathVariable("personId") Long personId) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-        return new ResponseEntity<>(personService.findPersonById(id), headers, HttpStatus.OK);
+        return new ResponseEntity<>(personService.findPersonById(personId), headers, HttpStatus.OK);
     }
 
     @PostMapping("/person")
@@ -51,9 +51,9 @@ public class PersonController {
         return new ResponseEntity<>(personService.updatePerson(person), headers, HttpStatus.OK);
     }
 
-    @DeleteMapping("/person/{id}")
-    public void deletePersonById(@PathVariable("id") Long id) {
-        personService.deletePersonById(id);
+    @DeleteMapping("/person/{personId}")
+    public void deletePersonById(@PathVariable("personId") Long personId) {
+        personService.deletePersonById(personId);
     }
 
     @DeleteMapping("/person")

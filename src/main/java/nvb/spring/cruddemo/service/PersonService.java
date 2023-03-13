@@ -19,12 +19,12 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public Person findPersonById(Long id) {
-        Optional<Person> optionalPerson = personRepository.findById(id);
+    public Person findPersonById(Long personId) {
+        Optional<Person> optionalPerson = personRepository.findById(personId);
         if (optionalPerson.isPresent()) {
             return optionalPerson.get();
         } else {
-            throw new ResourceNotFoundException("Record not found with id : " + id);
+            throw new ResourceNotFoundException("Record not found with id : " + personId);
         }
     }
 
@@ -33,7 +33,7 @@ public class PersonService {
     }
 
     public Person updatePerson(Person person) {
-        Optional<Person> optionalPerson = personRepository.findById(person.getId());
+        Optional<Person> optionalPerson = personRepository.findById(person.getPersonId());
         if (optionalPerson.isPresent()) {
             Person personUpdate = optionalPerson.get();
             personUpdate.setFirstName(person.getFirstName());
@@ -47,16 +47,16 @@ public class PersonService {
             personUpdate.setMarried(person.isMarried());
             return personUpdate;
         } else {
-            throw new ResourceNotFoundException("Record not found with id : " + person.getId());
+            throw new ResourceNotFoundException("Record not found with id : " + person.getPersonId());
         }
     }
 
-    public void deletePersonById(Long id) {
-        Optional<Person> optionalPerson = personRepository.findById(id);
+    public void deletePersonById(Long personId) {
+        Optional<Person> optionalPerson = personRepository.findById(personId);
         if (optionalPerson.isPresent()) {
-            personRepository.deleteById(id);
+            personRepository.deleteById(personId);
         } else {
-            throw new ResourceNotFoundException("Record not found with id : " + id);
+            throw new ResourceNotFoundException("Record not found with id : " + personId);
         }
     }
 
