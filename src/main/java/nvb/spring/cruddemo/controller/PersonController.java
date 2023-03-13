@@ -61,49 +61,41 @@ public class PersonController {
         personService.deleteAll();
     }
 
-    @GetMapping("/person/{email}")
-    public ResponseEntity<Optional<Person>> findPersonByEmail(@PathVariable("email") String email) {
+    @GetMapping("/personByEmail")
+    public ResponseEntity<Optional<Person>> findPersonByEmail(@RequestParam String email) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         return new ResponseEntity<>(personService.findPersonByEmail(email), headers, HttpStatus.OK);
     }
 
-    @GetMapping("/person/{age}")
-    public ResponseEntity<Optional<Person>> findPersonByAge(@PathVariable("age") int age) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-        return new ResponseEntity<>(personService.findPersonByAge(age), headers, HttpStatus.OK);
-    }
-
-    @GetMapping("/person/{country}")
-    public ResponseEntity<Optional<Person>> findPersonByCountry(@PathVariable("country") String country) {
+    @GetMapping("/personByCountry")
+    public ResponseEntity<Optional<Person>> findPersonByCountry(@RequestParam String country) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         return new ResponseEntity<>(personService.findPersonByCountry(country), headers, HttpStatus.OK);
     }
 
-    @GetMapping("/person/{city}")
-    public ResponseEntity<Optional<Person>> findPersonByCity(@PathVariable("city") String city) {
+    @GetMapping("/personByCity")
+    public ResponseEntity<Optional<Person>> findPersonByCity(@RequestParam String city) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         return new ResponseEntity<>(personService.findPersonByCity(city), headers, HttpStatus.OK);
     }
 
-    @GetMapping("/person/{isMarried}")
-    public ResponseEntity<Optional<Person>> findPersonByIsMarried(@PathVariable("isMarried") boolean isMarried) {
+    @GetMapping("/personByIsMarried")
+    public ResponseEntity<Optional<Person>> findPersonByIsMarried(@RequestParam boolean isMarried) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         return new ResponseEntity<>(personService.findPersonByIsMarried(isMarried), headers, HttpStatus.OK);
     }
 
-    @GetMapping("/person/{firstName}And{lastName}")
-    public ResponseEntity<Optional<Person>> findPersonByFirstNameAndLastName(@PathVariable("firstName") String firstName,
-                                                                             @PathVariable("lastName") String lastName) {
+    @GetMapping("/personByFirstNameAndLastName")
+    public ResponseEntity<Optional<Person>> findPersonByFirstNameAndLastName(@RequestParam String firstName,
+                                                                             @RequestParam String lastName) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));

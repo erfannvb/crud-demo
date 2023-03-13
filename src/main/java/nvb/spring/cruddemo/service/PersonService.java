@@ -73,15 +73,6 @@ public class PersonService {
         }
     }
 
-    public Optional<Person> findPersonByAge(int age) {
-        Optional<Person> optionalPerson = personRepository.findPersonByAge(age);
-        if (optionalPerson.isPresent()) {
-            return Optional.of(optionalPerson.get());
-        } else {
-            throw new ResourceNotFoundException("Record not found with age : " + age);
-        }
-    }
-
     public Optional<Person> findPersonByCountry(String country) {
         Optional<Person> optionalPerson = personRepository.findPersonByCountry(country);
         if (optionalPerson.isPresent()) {
