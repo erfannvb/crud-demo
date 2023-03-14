@@ -17,7 +17,7 @@ public class MotherObject {
 
     public static Person anyPerson() {
         Person person = Person.builder()
-                .id(ANY_ID)
+                .personId(ANY_ID)
                 .firstName(ANY_FIRST_NAME)
                 .lastName(ANY_LAST_NAME)
                 .email(ANY_EMAIL)

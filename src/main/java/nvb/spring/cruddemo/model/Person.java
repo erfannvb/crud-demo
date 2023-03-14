@@ -16,7 +16,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "person_id")
+    @Column(name = "personId")
     private Long personId;
 
     @Column(name = "firstName")
@@ -46,16 +46,4 @@ public class Person {
     @Column(name = "isMarried")
     private boolean isMarried;
 
-    public Person(String firstName, String lastName, String email,
-                  String country, String city, String gender, int age, String job, boolean isMarried) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.country = country;
-        this.city = city;
-        this.gender = gender;
-        this.age = age;
-        this.job = job;
-        this.isMarried = isMarried;
-    }
 }
